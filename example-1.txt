@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 example-1 content in branch one
+=======
+example-1 content in branch two
+>>>>>>> branch-one
