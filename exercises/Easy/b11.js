@@ -39,10 +39,10 @@ document.getElementById('addArrayB11').addEventListener('click', function(){
             }
             arrayB11.push(ktra);
         }
+        document.getElementById('runB11').addEventListener('click', function () {
+            let minb11 = MaxChan(arrayB11);
+            document.getElementById('ketquaB11').value = minb11;
+    });
     });
     document.getElementById('theInputB11').appendChild(BtnArrB11);
-    document.getElementById('runB11').addEventListener('click', function () {
-    let minb11 = MaxChan(arrayB11);
-    document.getElementById('ketquaB11').value = minb11;
-    });
 });

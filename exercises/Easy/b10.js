@@ -39,10 +39,10 @@ document.getElementById('addArrayB10').addEventListener('click', function(){
             }
             arrayB10.push(ktra);
         }
+        document.getElementById('runB10').addEventListener('click', function () {
+            let maxB10 = MaxChan(arrayB10);
+            document.getElementById('ketquaB10').value = maxB10;
+    });
     });
     document.getElementById('theInputB10').appendChild(BtnArrB10);
-    document.getElementById('runB10').addEventListener('click', function () {
-    let maxB10 = MaxChan(arrayB10);
-    document.getElementById('ketquaB10').value = maxB10;
-    });
 });
