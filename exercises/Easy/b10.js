@@ -1,4 +1,4 @@
-function MaxChan(arrayB10){
+function Maxmang(arrayB10){
     let Max = arrayB10[0];
     for(let i = 0; i < arrayB10.length; i++){
         if(arrayB10[i] > Max){
@@ -40,7 +40,7 @@ document.getElementById('addArrayB10').addEventListener('click', function(){
             arrayB10.push(ktra);
         }
         document.getElementById('runB10').addEventListener('click', function () {
-            let maxB10 = MaxChan(arrayB10);
+            let maxB10 = Maxmang(arrayB10);
             document.getElementById('ketquaB10').value = maxB10;
     });
     });

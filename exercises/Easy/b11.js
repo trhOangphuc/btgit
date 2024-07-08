@@ -1,4 +1,4 @@
-function MaxChan(arrayB11){
+function MinMang(arrayB11){
     let Min = arrayB11[0];
     for(let i = 0; i < arrayB11.length; i++){
         if(arrayB11[i] < Min){
@@ -40,7 +40,7 @@ document.getElementById('addArrayB11').addEventListener('click', function(){
             arrayB11.push(ktra);
         }
         document.getElementById('runB11').addEventListener('click', function () {
-            let minb11 = MaxChan(arrayB11);
+            let minb11 = MinMang(arrayB11);
             document.getElementById('ketquaB11').value = minb11;
     });
     });
