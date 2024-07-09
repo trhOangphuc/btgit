@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise-medium</title>
+    <style>
+    </style>
 </head>
 <body>
     <form>
@@ -140,7 +142,7 @@
             <th>Output</th>
             <tr>
                 <td>Mảng mới: </td>
-                <td><input type="text" id="mangmoiB5"></td>
+                <td><input type="text" id="mangmoiB5" readonly></td>
             </tr>
             <tr>
                 <td><button type="button" id="runB5">Run</button></td>
@@ -169,11 +171,182 @@
             <th>Output</th>
             <tr>
                 <td>Mảng mới: </td>
-                <td><input type="text" id="mangmoiB6"></td>
+                <td><input type="text" id="mangmoiB6" readonly></td>
             </tr>
             <tr>
                 <td><button type="button" id="runB6">Run</button></td>
                 <td><button type="reset" id="rsB6">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <form>
+        <h1><p>Exercises-medium 7: Lấy một số phần tử của mảng</p></h1>
+        <table>
+            <th>Input</th>
+            <tr>
+                <td>Nhập số lượng mảng</td>
+                <td><input type="number" id="lengthB7"></td>
+            </tr>
+            <tr>
+                <td>Nhập dữ liệu cho mảng: </td>
+                <td><button type="button" id="themmangB7">Nhập mảng</button></td>
+                <td><div id="inputmangB7"></div></td>
+            </tr>
+            <tr>
+                <td>Nhập phần tử vị trí đầu</td>
+                <td><input type="text" id="vtrDau"></td>
+                <td>Nhập phần tử vị trí cuối</td>
+                <td><input type="text" id="vtrCuoi" ></td>
+            </tr>
+            
+            <th>Output</th>
+            <tr>
+                <td>Mảng mới: </td>
+                <td><input type="text" id="mangmoiB7" readonly></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="runB7">Run</button></td>
+                <td><button type="reset" id="rsB7">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <form>
+        <h1><p>Exercises-medium 8: Tìm vị trí chuỗi a trong chuỗi b (indexOf)</p></h1>
+        <table>
+            <th>Input</th>
+            <tr>
+                <td>Nhập chuỗi kí tự a: </td>
+                <td><input type="text" id="Stringa"></td>
+            </tr>
+            <tr>
+                <td>Nhập chuỗi kí tự b: </td>
+                <td><input type="text" id="Stringb"></td>
+            </tr>
+            <th><br>Output</th>
+            <tr>
+                <td><center><div id="vitriB8">Vị trí</div></center></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="SearchB8">Search</button></td>
+                <td><button type="reset" id="rsB8">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <form>
+    <h1><p1>Exercise-medium 9: Tổng các phần tử mảng a có trong mảng b</p1></h1>
+        <table>
+            <th>Input</th>
+            <tr>
+                <td>Nhập số lượng của mảng !</td>
+                <td><input id="lengthB9" type="number"></td>
+            </tr>
+            <tr>
+                <td>Nhập dữ liệu cho mảng thứ nhất: </td>
+                <td><button type="button" id="themmang1B9">Nhập mảng 1</button></td>
+                <td><div id="inputmang1B9"></div></td>
+            </tr>
+            <tr>
+                <td>Nhập dữ liệu cho mảng thứ hai: </td>
+                <td><button type="button" id="themmang2B9">Nhập mảng 2</button></td>
+                <td><div id="inputmang2B9"></div></td>
+            </tr>
+            <th>Output</th>
+            <tr>
+                <td>Kết quả: </td>
+                <td><input type="text" id="ketquaB9" readonly></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="runB9">Run</button></td>
+                <td><button type="reset" id="rsB9">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <h1><p1>Exercise-medium 10: Tổng các phần tử mảng a không có trong mảng b</p1></h1>
+        <table>
+            <th>Input</th>
+            <tr>
+                <td>Nhập số lượng của mảng !</td>
+                <td><input id="lengthB10" type="number"></td>
+            </tr>
+            <tr>
+                <td>Nhập dữ liệu cho mảng thứ nhất: </td>
+                <td><button type="button" id="themmang1B10">Nhập mảng 1</button></td>
+                <td><div id="inputmang1B10"></div></td>
+            </tr>
+            <tr>
+                <td>Nhập dữ liệu cho mảng thứ hai: </td>
+                <td><button type="button" id="themmang2B10">Nhập mảng 2</button></td>
+                <td><div id="inputmang2B10"></div></td>
+            </tr>
+            <th>Output</th>
+            <tr>
+                <td>Kết quả: </td>
+                <td><input type="text" id="ketquaB10" readonly></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="runB10">Run</button></td>
+                <td><button type="reset" id="rsB10">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <form>
+        <h1><p>Exercises-medium 11: Random từ 0->a</p></h1>
+        <table>
+            <th>Input</th>
+            <tr>
+                <td>Nhập một số a: </td>
+                <td><input type="number" id="randoma" min="1"></td>
+            </tr>
+            <th><br>Output</th>
+            <tr>
+                <td>Random: </td>
+                <td><input type="number" id="ketquaB11"></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="runB11">Random</button></td>
+                <td><button type="reset" id="rsB11">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <form>
+        <h1><p>Exercises-medium 12: Random từ (-a)->a</p></h1>
+        <table>
+            <th>Input</th>
+            <tr>
+                <td>Nhập một số a: </td>
+                <td><input type="number" id="randomaB12" min="1"></td>
+            </tr>
+            <th><br>Output</th>
+            <tr>
+                <td>Random: </td>
+                <td><input type="number" id="ketquaB12"></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="runB12">Random</button></td>
+                <td><button type="reset" id="rsB12">Reset</button></td>
+            </tr>
+        </table>
+    </form>
+    <form>
+        <h1><p>Exercise-medium 13: Tính giá nhà nghỉ</p></h1>
+        <table>
+            <th>Input</th>
+            <tr>
+                <td>Nhập giờ checkin: </td>
+                <td><input type="number" id="checkinTime"></td>
+                <td>Nhập giờ checkout: </td>
+                <td><input type="number" id="checkoutTime" min="1"></td>
+            </tr>
+            <tr><td><br></td></tr>
+            <th>Output</th>
+            <tr>
+                <td>Số tiền phải trả là: </td>
+                <td><input type="number" id="money" readonly></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="runB13">Tính tiền</button></td>
+                <td><button type="reset" id="rsB13">Reset</button></td>
             </tr>
         </table>
     </form>
@@ -183,5 +356,12 @@
     <script src="Mb4.js"></script>
     <script src="Mb5.js"></script>
     <script src="Mb6.js"></script>
+    <script src="Mb7.js"></script>
+    <script src="Mb8.js"></script>
+    <script src="Mb9.js"></script>
+    <script src="Mb10.js"></script>
+    <script src="Mb11.js"></script>
+    <script src="Mb12.js"></script>
+    <script src="Mb13.js"></script>
 </body>
 </html>
