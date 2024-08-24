@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập JavaScript</title>
+    <script>
+        // Bài 1: Đảo ngược ký tự của từng từ trong một câu
+        function reverseWords() {
+            const sentence = document.getElementById('sentence').value;
+            const reversed = sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+            document.getElementById('result1').innerText = reversed;
+        }
+
+        // Bài 2: Hàm randomRange(a, b)
+        function randomRange() {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const random = Math.random() * (b - a) + a;
+            document.getElementById('result2').innerText = random.toFixed(2);
+        }
+
+        // Bài 3: Nối 2 mảng số tăng dần
+        function mergeSortedArraysAscending() {
+            const array1 = JSON.parse(document.getElementById('array1').value);
+            const array2 = JSON.parse(document.getElementById('array2').value);
+            const merged = array1.concat(array2).sort((a, b) => a - b);
+            document.getElementById('result3').innerText = JSON.stringify(merged);
+        }
+
+        // Bài 4: Nối 2 mảng số giảm dần
+        function mergeSortedArraysDescending() {
+            const array3 = JSON.parse(document.getElementById('array3').value);
+            const array4 = JSON.parse(document.getElementById('array4').value);
+            const merged = array3.concat(array4).sort((a, b) => b - a);
+            document.getElementById('result4').innerText = JSON.stringify(merged);
+        }
+
+        // Bài 5: Nối 2 mảng số giảm dần thành mảng tăng dần
+        function mergeDescendingToAscending() {
+            const array5 = JSON.parse(document.getElementById('array5').value);
+            const array6 = JSON.parse(document.getElementById('array6').value);
+            const merged = array5.concat(array6).sort((a, b) => a - b);
+            document.getElementById('result5').innerText = JSON.stringify(merged);
+        }
+
+        // Bài 6: Nối 2 mảng số tăng dần thành mảng giảm dần
+        function mergeAscendingToDescending() {
+            const array7 = JSON.parse(document.getElementById('array7').value);
+            const array8 = JSON.parse(document.getElementById('array8').value);
+            const merged = array7.concat(array8).sort((a, b) => b - a);
+            document.getElementById('result6').innerText = JSON.stringify(merged);
+        }
+
+        // Bài 7: Đổi từ số tiền bằng số sang số tiền bằng chữ
+        function numberToWords() {
+            const number = parseInt(document.getElementById('number').value);
+            // Hàm đổi số thành chữ viết ở đây
+            function convertNumberToWords(num) {
+                const units = ["", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+                const teens = ["mười", "mười một", "mười hai", "mười ba", "mười bốn", "mười lăm", "mười sáu", "mười bảy", "mười tám", "mười chín"];
+                const tens = ["", "", "hai mươi", "ba mươi", "bốn mươi", "năm mươi", "sáu mươi", "bảy mươi", "tám mươi", "chín mươi"];
+                const scales = ["", "nghìn", "triệu", "tỷ"];
+
+                if (num === 0) return "không";
+
+                let words = [];
+
+                for (let i = 0; i < scales.length; i++) {
+                    let tempNumber = num % (1000 ** (i + 1));
+                    if (Math.floor(tempNumber / (1000 ** i)) !== 0) {
+                        let chunk = Math.floor(tempNumber / (1000 ** i));
+                        let chunkWords = [];
+
+                        if (chunk >= 100) {
+                            chunkWords.push(units[Math.floor(chunk / 100)] + " trăm");
+                            chunk = chunk % 100;
+                        }
+
+                        if (chunk >= 20) {
+                            chunkWords.push(tens[Math.floor(chunk / 10)]);
+                            chunk = chunk % 10;
+                        } else if (chunk >= 10) {
+                            chunkWords.push(teens[chunk - 10]);
+                            chunk = 0;
+                        }
+
+                        if (chunk > 0) {
+                            chunkWords.push(units[chunk]);
+                        }
+
+                        words.unshift(chunkWords.join(" ") + " " + scales[i]);
+                    }
+                }
+
+                return words.join(" ").trim();
+            }
+
+            const words = convertNumberToWords(number);
+            document.getElementById('result7').innerText = words;
+        }
+
+        // Bài 8: Tính số đồng tiền ít nhất
+        function minCurrencyNotes() {
+            const amount = parseInt(document.getElementById('amount').value);
+            const notes = [500000, 100000, 50000, 10000, 5000, 2000, 1000];
+            let remaining = amount;
+            let result = {};
+
+            for (let note of notes) {
+                if (remaining >= note) {
+                    result[note] = Math.floor(remaining / note);
+                    remaining = remaining % note;
+                }
+            }
+
+            document.getElementById('result8').innerText = JSON.stringify(result);
+        }
+
+        // Bài 9: Tổng số lần xuất hiện của string a trong string b
+        function countOccurrences() {
+            const strA = document.getElementById('strA').value;
+            const strB = document.getElementById('strB').value;
+            let count = 0;
+            let pos = strB.indexOf(strA);
+
+            while (pos !== -1) {
+                count++;
+                pos = strB.indexOf(strA, pos + 1);
+            }
+
+            document.getElementById('result9').innerText = count;
+        }
+
+        // Bài 10: Xáo trộn mảng số
+        function shuffleArray() {
+            const array = JSON.parse(document.getElementById('array10').value);
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            document.getElementById('result10').innerText = JSON.stringify(array);
+        }
+
+        // Bài 11: Chữ số cuối cùng khác 0 của n giai thừa
+        function lastNonZeroDigitOfFactorial() {
+            const n = parseInt(document.getElementById('number11').value);
+
+            function factorialLastNonZeroDigit(n) {
+                if (n === 0) return 1;
+                let result = 1;
+                for (let i = 1; i <= n; i++) {
+                    result *= i;
+                    while (result % 10 === 0) {
+                        result /= 10;
+                    }
+                    result %= 1000000;
+                }
+                return result % 10;
+            }
+
+            const lastDigit = factorialLastNonZeroDigit(n);
+            document.getElementById('result11').innerText = lastDigit;
+        }
+
+        // Bài 12: Số chữ số 0 trong n giai thừa
+        function countTrailingZerosInFactorial() {
+            const n = parseInt(document.getElementById('number12').value);
+
+            function countZeros(n) {
+                let count = 0;
+                while (n >= 5) {
+                    n = Math.floor(n / 5);
+                    count += n;
+                }
+                return count;
+            }
+
+            const zeroCount = countZeros(n);
+            document.getElementById('result12').innerText = zeroCount;
+        }
+    </script>
+</head>
+<body>
+    <h1>Bài Tập JavaScript</h1>
+    
+    <!-- Bài 1 -->
+    <h2>Bài 1: Đảo ngược ký tự của từng từ trong một câu</h2>
+    <input type="text" id="sentence" placeholder="Nhập câu">
+    <button onclick="reverseWords()">Thực thi</button>
+    <p>Kết quả: <span id="result1"></span></p>
+
+    <!-- Bài 2 -->
+    <h2>Bài 2: Hàm randomRange(a, b)</h2>
+    <input type="number" id="a" placeholder="a">
+    <input type="number" id="b" placeholder="b">
+    <button onclick="randomRange()">Thực thi</button>
+    <p>Kết quả: <span id="result2"></span></p>
+
+    <!-- Bài 3 -->
+    <h2>Bài 3: Nối 2 mảng số đã sắp xếp theo thứ tự tăng dần</h2>
+    <input type="text" id="array1" placeholder='[1, 3, 5]'>
+    <input type="text" id="array2" placeholder='[2, 4, 6]'>
+    <button onclick="mergeSortedArraysAscending()">Thực thi</button>
+    <p>Kết quả: <span id="result3"></span></p>
+
+    <!-- Bài 4 -->
+    <h2>Bài 4: Nối 2 mảng số đã sắp xếp theo thứ tự giảm dần</h2>
+    <input type="text" id="array3" placeholder='[6, 4, 2]'>
+    <input type="text" id="array4" placeholder='[5, 3, 1]'>
+    <button onclick="mergeSortedArraysDescending()">Thực thi</button>
+    <p>Kết quả: <span id="result4"></span></p>
+
+    <!-- Bài 5 -->
+    <h2>Bài 5: Nối 2 mảng số đã sắp xếp theo thứ tự giảm dần thành mảng tăng dần</h2>
+    <input type="text" id="array5" placeholder='[6, 4, 2]'>
+    <input type="text" id="array6" placeholder='[5, 3, 1]'>
+    <button onclick="mergeDescendingToAscending()">Thực thi</button>
+    <p>Kết quả: <span id="result5"></span></p>
+
+    <!-- Bài 6 -->
+    <h2>Bài 6: Nối 2 mảng số đã sắp xếp theo thứ tự tăng dần thành mảng giảm dần</h2>
+    <input type="text" id="array7" placeholder='[1, 3, 5]'>
+    <input type="text" id="array8" placeholder='[2, 4, 6]'>
+    <button onclick="mergeAscendingToDescending()">Thực thi</button>
+    <p>Kết quả: <span id="result6"></span></p>
+
+    <!-- Bài 7 -->
+    <h2>Bài 7: Đổi từ số tiền bằng số sang số tiền bằng chữ</h2>
+    <input type="number" id="number" placeholder="Nhập số tiền">
+    <button onclick="numberToWords()">Thực thi</button>
+    <p>Kết quả: <span id="result7"></span></p>
+
+    <!-- Bài 8 -->
+    <h2>Bài 8: Tính số đồng tiền ít nhất</h2>
+    <input type="number" id="amount" placeholder="Nhập số tiền">
+    <button onclick="minCurrencyNotes()">Thực thi</button>
+    <p>Kết quả: <span id="result8"></span></p>
+
+    <!-- Bài 9 -->
+    <h2>Bài 9: Tổng số lần xuất hiện của string a trong string b</h2>
+    <input type="text" id="strA" placeholder="String a">
+    <input type="text" id="strB" placeholder="String b">
+    <button onclick="countOccurrences()">Thực thi</button>
+    <p>Kết quả: <span id="result9"></span></p>
+
+    <!-- Bài 10 -->
+    <h2>Bài 10: Xáo trộn mảng số</h2>
+    <input type="text" id="array10" placeholder='[1, 2, 3, 4, 5]'>
+    <button onclick="shuffleArray()">Thực thi</button>
+    <p>Kết quả: <span id="result10"></span></p>
+
+    <!-- Bài 11 -->
+    <h2>Bài 11: Chữ số cuối cùng khác 0 của n giai thừa</h2>
+    <input type="number" id="number11" placeholder="Nhập số n">
+    <button onclick="lastNonZeroDigitOfFactorial()">Thực thi</button>
+    <p>Kết quả: <span id="result11"></span></p>
+
+    <!-- Bài 12 -->
+    <h2>Bài 12: Số chữ số 0 trong n giai thừa</h2>
+    <input type="number" id="number12" placeholder="Nhập số n">
+    <button onclick="countTrailingZerosInFactorial()">Thực thi</button>
+    <p>Kết quả: <span id="result12"></span></p>
+</body>
+</html>
